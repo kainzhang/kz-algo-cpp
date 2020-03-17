@@ -2,40 +2,38 @@
 // Created by LOKKA on 2020/3/17.
 //
 
-#include<iostream>
-#include<string.h>
-
+#include <iostream>
+#include <map>
 using namespace std;
 
-int main() {
-    int n, t, a[100005], sum = 0;
-    memset(a, 0, sizeof(a));
-    cin >> n;
-    while (n--) {
-        cin >> t;
-        a[t]++;
-    }
-    t = 0;
-    for (int i = 1; i < 100005;) {
-        if (t && a[i]) {
-            a[i + t]++;
-            a[i]--;
-            sum += i + t;
-            t = 0;
-            goto aaa;
-        }
+map<int ,int> mp;
 
-        if (a[i] >= 2) {
-            a[i * 2] += a[i] / 2;
-            sum += i * 2 * (a[i] / 2);
-            a[i] %= 2;
-            t = 0;
-        } else if (a[i]) {
-            t = i;
-            a[i] = 0;
-        }
-        aaa:
-        if (!a[i])i++;
+int main() {
+    int n, t, ans=0;
+    cin >> n;
+    while(n--) {
+        cin >> t;
+        mp[t] ++;
     }
-    cout << sum << endl;
+    int flag = 0;
+    map<int, int>::iterator it;
+    for(it = mp.begin(); it != mp.end(); it++) {
+        if(flag) {
+            mp[it->first + flag]++;
+            mp[it->first]--;
+            ans += flag + it->first;
+            flag = 0;
+        }
+        if(it->second >= 2) {
+            int tmp = it->second / 2;
+            mp[it->first * 2] += tmp;
+            ans += it->first * 2 * tmp;
+            mp[it->first] %= 2;
+        }
+        if(it->second){
+            flag = it->first;
+            mp[it->first]--;
+        }
+    }
+    cout << ans << endl;
 }
