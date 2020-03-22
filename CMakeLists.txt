@@ -9,3 +9,4 @@ foreach (file ${files})
     add_executable (${exe} ${file})
     message (\ \ \ \ --\ src/${exe}.cpp\ will\ be\ compiled\ to\ bin/${exe})
 endforeach ()
+
