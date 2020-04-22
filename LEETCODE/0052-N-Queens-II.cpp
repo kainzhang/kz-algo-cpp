@@ -4,7 +4,6 @@
 
 #include <iostream>
 #include <vector>
-#include <cmath>
 
 using namespace std;
 
@@ -17,7 +16,6 @@ public:
         }
         return true;
     }
-
     void dfs(int row, int n, vector<int> &pos, int &res) {
         if (row == n) {
             res++;
@@ -31,7 +29,6 @@ public:
             }
         }
     }
-
     int totalNQueens(int n) {
         vector<int> pos(n, -1);
         int res = 0;
