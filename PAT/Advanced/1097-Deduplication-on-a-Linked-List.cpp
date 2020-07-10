@@ -12,15 +12,15 @@ struct Node {
 map<int, Node> mp;
 map<int, int> vis;
 
-void print_ll(int head) {
-    while (head != -1) {
-        printf("%05d %d ", head, mp[head].key);
-        if (mp[head].nxt == -1) {
+void print_ll(int cur) {
+    while (cur != -1) {
+        printf("%05d %d ", cur, mp[cur].key);
+        if (mp[cur].nxt == -1) {
             printf("-1\n");
         } else {
-            printf("%05d\n",  mp[head].nxt);
+            printf("%05d\n",  mp[cur].nxt);
         }
-        head = mp[head].nxt;
+        cur = mp[cur].nxt;
     }
 }
 
