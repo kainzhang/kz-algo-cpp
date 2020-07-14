@@ -29,14 +29,14 @@ int main() {
         }
         bool isC = true, isM = true;
         for (int j = 0; j < K; j++) {
-            if (!isC) break;
             for (int k = j + 1; k < K; k++) {
-                if (G[v[j]][v[k]] == 0) {
+                if (!G[v[j]][v[k]]) {
                     isC = false;
                     cout << "Not a Clique" << endl;
                     break;
                 }
             }
+            if (!isC) break;
         }
         if (!isC) continue;
         for (int j = 1; j <= Nv; j++) {
