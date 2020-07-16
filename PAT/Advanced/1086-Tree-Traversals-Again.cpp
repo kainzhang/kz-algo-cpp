@@ -9,7 +9,7 @@ vector<int> pre, in;
 stack<int> stk;
 
 /**
- *  通过 先序 和 中序 获取中序
+ *  通过 先序 和 中序 获取后序
  */
 
 int flag = 0;
