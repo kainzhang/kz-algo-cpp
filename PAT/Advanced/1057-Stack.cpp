@@ -5,10 +5,10 @@
 #include <bits/stdc++.h>
 using namespace std;
 const int mxN = 1e5 + 10;
-const int sqrN = 1e2;
+const int sqrN = 317;
 
 stack<int> stk;
-vector<int> blk(mxN), tb(mxN);
+vector<int> blk(sqrN), tb(mxN);
 
 int main() {
     ios::sync_with_stdio(false);
