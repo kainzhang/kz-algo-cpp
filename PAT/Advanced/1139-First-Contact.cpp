@@ -14,7 +14,7 @@ bool cmp(const Result &a, const Result &b) {
 }
 
 unordered_map<string, vector<string> > mp;  // friends of same gender
-unordered_map<int, bool> isF;  // all friend relations
+unordered_map<int, bool> isF;  // all relations
 
 int main() {
     ios::sync_with_stdio(false);
@@ -38,7 +38,6 @@ int main() {
     for (int i = 0; i < K; i++) {
         vector<Result> res;
         cin >> A >> B;
-        int b = abs(stoi(B));
         for (string &j : mp[A]) {  // A's friend C
             if (j == B) continue;
             for (string &k : mp[B]) {  // B's friend D

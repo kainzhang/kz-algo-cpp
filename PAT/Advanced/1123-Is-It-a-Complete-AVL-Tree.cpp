@@ -1,12 +1,12 @@
 //
-// Created by LOKKA on 2020/7/22.
+// Created by LOKKA on 2020/7/23.
 //
 
 #include <bits/stdc++.h>
 using namespace std;
 
 struct Node {
-    int val;
+    int val, lyr;
     Node *left, *right;
 };
 
@@ -58,6 +58,37 @@ Node* Insert(Node *root, int val) {
     return root;
 }
 
+bool is_complete = true;
+void LayerOrder(Node *root) {
+    queue<Node*> que;
+    root->lyr = 0;
+    que.push(root);
+    bool flag = false, sign = false;
+    while (!que.empty()) {
+        root = que.front();
+        que.pop();
+        if (flag) cout << " " << root->val;
+        else {
+            cout << root->val;
+            flag = true;
+        }
+        int flagL = 0, flagR = 0;
+        if (root->left != NULL) {
+            que.push(root->left);
+            if (sign) is_complete = false;  // 层次遍历前面一个结点无儿子，当前结点有儿子
+        } else {
+            sign = true;  // 出现第一个无儿子结点时标记
+        }
+        if (root->right != NULL) {
+            que.push(root->right);
+            if (sign) is_complete = false;
+        } else {
+            sign = true;
+        }
+    }
+    cout << endl;
+}
+
 int main() {
     int N, val;
     cin >> N;
@@ -66,5 +97,6 @@ int main() {
         cin >> val;
         root = Insert(root, val);
     }
-    cout << root->val;
+    LayerOrder(root);
+    cout << (is_complete ? "YES" : "NO") << endl;
 }
