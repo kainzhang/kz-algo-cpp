@@ -10,15 +10,14 @@ using namespace std;
 char ch[] = {'S', 'H', 'C', 'D', 'J'};
 
 int main() {
-    int K, t;
+    int K;
     vector<int> od(55), cd(55), cd2(55);
     for (int i = 1; i < 55; i++)
         cd[i] = i - 1;
 
     scanf("%d", &K);
     for (int i = 1; i < 55; i++) {
-        scanf("%d", &t);
-        od[i] = t;
+        scanf("%d", &od[i]);
     }
     int cnt = 0;
     while (K--) {

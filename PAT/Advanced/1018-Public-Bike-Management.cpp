@@ -40,7 +40,7 @@ void dijkstra(int s) {
 int min_bk = INT_MAX, min_sd = INT_MAX;
 void dfs(int v) {
     tmp_path.push_back(v);
-    if (v == 0) {
+    if (v == 0) {  // 路径结束，计算需要派送和带回的数量
         int len = tmp_path.size(), bk = 0, sd = 0;
         for (int i = len - 2; i >= 0; i--) {  // 去掉出发点
             int num = w[tmp_path[i]] - C / 2;  // 当前车站的数量情况

@@ -6,7 +6,7 @@
 using namespace std;
 
 struct Node {
-    int val, lyr;
+    int val;
     Node *left, *right;
 };
 
@@ -61,7 +61,6 @@ Node* Insert(Node *root, int val) {
 bool is_complete = true;
 void LayerOrder(Node *root) {
     queue<Node*> que;
-    root->lyr = 0;
     que.push(root);
     bool flag = false, sign = false;
     while (!que.empty()) {
@@ -72,7 +71,6 @@ void LayerOrder(Node *root) {
             cout << root->val;
             flag = true;
         }
-        int flagL = 0, flagR = 0;
         if (root->left != NULL) {
             que.push(root->left);
             if (sign) is_complete = false;  // 层次遍历前面一个结点无儿子，当前结点有儿子

@@ -22,9 +22,9 @@ void dfs(int idx, int h) {
     }
 
     // 遍历结点所有子结点
-    for (auto it = G[idx].begin(); it != G[idx].end(); it++) {
-        if (vis[*it]) continue;
-        dfs(*it, h + 1);
+    for (int &i : G[idx]) {
+        if (vis[i]) continue;
+        dfs(i, h + 1);
     }
 }
 
@@ -40,7 +40,7 @@ int main() {
         G[b].push_back(a);
     }
 
-    int K = 0;  // 统计连通分量
+    int K = 0;  // 统计连通分量个数
     for (int i = 1; i <= N; i++) {
         if (!vis[i]) {
             dfs(i, 0);
@@ -48,7 +48,7 @@ int main() {
         }
     }
 
-    if (K > 1) {  // 连通分量大于 1, 非连通图, 输出错误
+    if (K > 1) {  // 连通分量个数大于 1, 非连通图, 输出错误
         cout << "Error: " << K << " components" << endl;
         return 0;
     }
@@ -61,10 +61,10 @@ int main() {
     dfs(tmp[0], 0);
 
     // 保存第二次深搜解集
-    for (auto it = tmp.begin(); it != tmp.end(); it++) {
-        ans.insert(*it);
+    for (int &i : tmp) {
+        ans.insert(i);
     }
-    for (auto it = ans.begin(); it != ans.end(); it++) {
-        cout << *it << endl;
+    for (auto &i : ans) {
+        cout << i << endl;
     }
 }

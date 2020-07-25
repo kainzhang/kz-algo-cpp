@@ -11,7 +11,7 @@ struct node {
     int next;
 };
 
-vector<node> ll(mxN);
+vector<node> lst(mxN);
 map<int, int> mp;
 
 int main() {
@@ -21,12 +21,12 @@ int main() {
     cin >> a1 >> a2 >> N;
     for (int i = 0 ; i < N; i++) {
         cin >> addr;
-        cin >> ll[addr].data >> ll[addr].next;
+        cin >> lst[addr].data >> lst[addr].next;
     }
     addr = a1;
     while (addr != -1) {
         mp[addr]++;
-        addr = ll[addr].next;
+        addr = lst[addr].next;
     }
     addr = a2;
     int cnt = 0;
@@ -36,7 +36,7 @@ int main() {
             printf("%05d\n", addr);
             return 0;
         }
-        addr = ll[addr].next;
+        addr = lst[addr].next;
         cnt++;
     }
     printf("-1\n", addr);

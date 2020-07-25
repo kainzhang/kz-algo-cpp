@@ -6,14 +6,14 @@
 using namespace std;
 
 vector<int> v, post;
-bool isM = false;
+bool judgeM = false;
 
 void get_post(int l, int r) {
     int i = l + 1, j = r;
-    if (!isM) {
+    if (!judgeM) {
         while (i <= r && v[l] > v[i]) i++;
         while (j > l && v[l] <= v[j]) j--;
-    } else {
+    } else {  // 镜像
         while (i <= r && v[l] <= v[i]) i++;
         while (j > l && v[l] > v[j]) j--;
     }
@@ -34,7 +34,7 @@ int main() {
     }
     get_post(0, N - 1);
     if (post.size() != N) {
-        isM = true;
+        judgeM = true;
         post.clear();
         get_post(0, N - 1);
     }

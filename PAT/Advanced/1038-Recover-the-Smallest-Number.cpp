@@ -23,13 +23,13 @@ int main() {
     for (int i = 0; i < N; i++) {
         if (!flag) {
             int num = stoi(v[i]);
-            if (!num) continue;
+            if (!num) continue;  // 为 0 则跳过，直到遇到第一个非零数
             flag++;
             cout << num;
         } else {
             cout << v[i];
         }
     }
-    if (!flag) cout << "0";
+    if (!flag) cout << "0";  // 元素全部为 0
     cout << endl;
 }

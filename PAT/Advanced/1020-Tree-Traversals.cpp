@@ -19,7 +19,7 @@ int build_tree(int postL, int postR, int inL, int inR) {
         if (in[k] == post[postR]) break;
         k++;
     }
-    int numleft = k - inL;
+    int numleft = k - inL;  // 左子树结点数量
     G[post[postR]][0] = build_tree(postL, postL + numleft - 1, inL, k - 1);
     G[post[postR]][1] = build_tree(postL + numleft, postR - 1, k + 1, inR);
 
@@ -40,7 +40,6 @@ void print_level_order(int r) {
         if (G[r][1] != -1) que.push(G[r][1]);
     }
 }
-
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(0);
@@ -84,11 +83,11 @@ int main() {
 //        k++;
 //    }
 //
-//    // 左子树顶点数量
+//    // 左子树结点数量
 //    int numleft = k - inL;
 //    node* n = new node;
 //
-//    // 根节点赋值，后序序列末位为根节点
+//    // 根节点赋值，后序序列末位为根结点
 //    n->data = post[postR];
 //
 //    n->lchild = build_tree(postL, postL + numleft - 1, inL, k - 1);

@@ -52,7 +52,6 @@ int main() {
     }
 
     sign = 'C';
-    int n = N + 1;
     sort(s.begin() + 1, s.end(), cmp);
     for (int i = 1; i <= N; i++) {
         s[i].CR = (s[i].C == s[i - 1].C) ? s[i - 1].CR : i;

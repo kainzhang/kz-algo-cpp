@@ -34,10 +34,11 @@ int main() {
     double sumT = 0;
 
     //  就绪队列，默认值为 8:00:00
-    priority_queue <int,vector<int>, greater<int> > win(K, 28800);
+    priority_queue <int, vector<int>, greater<int> > win(K, 28800);
 
     for (int i = 0; i < len; i++ ) {
-        int window = win.top(); win.pop();
+        int window = win.top();
+        win.pop();
         int wait = window - line[i].aT;
 
         if (wait < 0) {

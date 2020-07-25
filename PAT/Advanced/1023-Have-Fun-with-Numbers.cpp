@@ -11,7 +11,7 @@ int a[10];
 int main() {
     char str[25];
     scanf("%s", str + 1);
-    int len = strlen(str + 1);
+    int len = strlen(str + 1);  // 加一位用于进位
     int tmp = 0;
     for (int i = len; i > 0; i--) {
         a[str[i] - '0']++;
@@ -20,7 +20,7 @@ int main() {
         a[t % 10]--;
         tmp = t / 10;
     }
-    if (tmp) {
+    if (tmp) {  // 最终有进位
         str[0] = tmp + '0';
         a[tmp]--;
     }

@@ -7,7 +7,7 @@ using namespace std;
 const int mxN = 505;
 
 int N, M, S, D;
-int G[mxN][mxN], d[mxN], cost[mxN][mxN], c[mxN], pas[mxN];
+int G[mxN][mxN], d[mxN], cost[mxN][mxN], c[mxN], pre[mxN];
 bool vis[mxN] = {false};
 
 void dijkstra(int s) {
@@ -30,10 +30,10 @@ void dijkstra(int s) {
                 if (d[u] + G[u][v] < d[v]) {
                     d[v] = d[u] + G[u][v];
                     c[v] = c[u] + cost[u][v];
-                    pas[v] = u;  // 记录前置结点，即从 u → v
+                    pre[v] = u;  // 记录前置结点，即从 u → v
                 } else if (d[u] + G[u][v] == d[v] && c[u] + cost[u][v] < c[v]) {
                     c[v] = c[u] + cost[u][v];
-                    pas[v] = u;  // 记录前置结点
+                    pre[v] = u;  // 记录前置结点
                 }
             }
         }
@@ -46,7 +46,7 @@ void print_path(int v) {
         cout << v << " ";
         return;
     }
-    print_path(pas[v]);
+    print_path(pre[v]);
     cout << v << " ";
 }
 

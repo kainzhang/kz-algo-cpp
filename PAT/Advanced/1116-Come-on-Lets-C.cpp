@@ -6,9 +6,8 @@
 using namespace std;
 
 bool is_prime(int x) {
-    int sqr = (int)sqrt(x);
-    if (x == 2) return true;
-    for (int i = 2; i <= sqr; i++) {
+    if (x < 2) return false;
+    for (int i = 2; i * i <= x; i++) {
         if (x % i == 0)
             return false;
     }

@@ -46,19 +46,19 @@ int main() {
     for (int i = 0; i < N; i++) {
         if (vis[i]) continue;
         int idx = -1, vip_idx = -1, MIN = INT_MAX, vip_MIN = INT_MAX;
-        for (int j = 0; j < K; j++) {
+        for (int j = 0; j < K; j++) {  // 找到最先可用的桌
             if (tb[j].time < MIN) {
                 idx = j;
                 MIN = tb[j].time;
             }
-            if (tb[j].vip && tb[j].time < vip_MIN) {
+            if (tb[j].vip && tb[j].time < vip_MIN) {  // 找到最先可用的 VIP 桌
                 vip_idx = j;
                 vip_MIN = tb[j].time;
             }
         }
 
         int pid = i;
-        if (v[pid].vip && tb[vip_idx].time <= v[pid].arivT) {
+        if (v[pid].vip && tb[vip_idx].time <= v[pid].arivT) {  // 当前用户为 VIP
             idx = vip_idx;
         }
         if (tb[idx].vip) {

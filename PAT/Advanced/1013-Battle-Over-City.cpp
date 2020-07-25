@@ -69,6 +69,6 @@ int main() {
                 cnt++;  // 连通分量计数
             }
         }
-        cout << cnt - 1 << endl;  // 减去第一个
+        cout << cnt - 1 << endl;  // cnt - 1 条路连通 cnt 个城市
     }
 }

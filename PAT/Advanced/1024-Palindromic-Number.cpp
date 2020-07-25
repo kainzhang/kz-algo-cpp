@@ -7,7 +7,7 @@ using namespace std;
 
 bool is_palindrome(string str) {
     int len = str.size();
-    int mid = len / 2 + 1;
+    int mid = len / 2;
     for (int i = 0; i <= mid; i++) {
         if (str[i] != str[len - i - 1])
             return false;

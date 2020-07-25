@@ -31,7 +31,7 @@ int main() {
         for (int i = 0; i + L - 1 < len; i++) {
             int j = i + L - 1;
 
-            //  状态转移方程
+            //  两边元素相等 && 中间字符串回文
             if (str[i] == str[j] && dp[i + 1][j - 1] == 1) {
                 dp[i][j] = 1;
                 ans = L;  // 更新最长长度
